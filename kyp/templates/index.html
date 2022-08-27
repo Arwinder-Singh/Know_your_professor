@@ -1,3 +1,47 @@
-{% extends "base.html" %} {% load static %} {% block content %} {% comment %}
-<h1>Know your professor</h1>
-{% endcomment %} {% endblock %}
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href={% static "css/index.css "%}>
+
+
+<div class="home-content">
+
+    <div class="text-area">
+      <div class="text">
+        <p> RMT is about helping students answer a single question "what do I need to know to
+          maximize my chance of success in a given class?" Every teacher and class are different, and
+          knowing what to expect can help students best prepare themselves to succeed.</p>
+      </div>
+
+      <div class="search">
+        <form action="">
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1"
+                class="form-control border-0 bg-light">
+              <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                    class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+    <div class="image">
+      <img src={% static "images/img.png" %} alt="image">
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}
