@@ -1,0 +1,38 @@
+{% extends "base.html "%}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href={% static "css/team.css"%}>
+<h2>About Us</h2>
+<div class="container">
+    <div class="card">
+        <div class="content">
+            <div class="imgbx"><img src={% static "images/1.png" %} alt=""></div>
+            <div class="contentbx">
+                <h3>Someone famous<br><span>Creative design</span></h3>
+            </div>
+        </div>
+        <ul class="sci">
+            <li style="--i:1"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li style="--i:2"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li style="--i:3"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="imgbx"><img src={% static "images/1.png" %} alt=""></div>
+            <div class="contentbx">
+                <h3>Someone famous<br><span>Creative design</span></h3>
+            </div>
+        </div>
+        <ul class="sci">
+            <li style="--i:1"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li style="--i:2"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li style="--i:3"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

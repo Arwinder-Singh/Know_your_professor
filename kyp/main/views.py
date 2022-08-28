@@ -6,3 +6,9 @@ def index(request):
 
 def dept(request):
     return render(request,'dept.html')    
+
+def team(request):
+    return render(request,'team.html') 
+
+def contact(request):
+    return render(request,'contact.html') 

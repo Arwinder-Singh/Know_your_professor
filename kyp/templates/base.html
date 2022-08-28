@@ -19,6 +19,8 @@
 
   <link rel="stylesheet" href={% static "css/base.css" %}>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
@@ -27,7 +29,7 @@
     <div class="glass">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand" href="/">
             Know Your Professor
           </a>
           <!-- <span class="donate-link donate-link-mobile text-white ml-auto mr-2">Donate</span> -->
@@ -38,14 +40,14 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ml-auto custom-toggler">
               <li class="nav-item">
-                <a class="nav-link px-md-0 mx-md-3" href="#">Home</a>
+                <a class="nav-link px-md-0 mx-md-3" href="/">Home</a>
               </li>
               <li class="nav-item dropdown show">
                 <a class="nav-link px-md-0 mx-md-3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments
                 </a>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">CSE</a>
+                  <a class="dropdown-item" href="{% url "dept" %}">CSE</a>
                   <a class="dropdown-item" href="#">ME</a>
                   <a class="dropdown-item" href="#">CIVIL</a>
 
@@ -56,10 +58,10 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-md-0 mx-md-3" href="#">Team</a>
+                <a class="nav-link px-md-0 mx-md-3" href="/team/">Team</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-md-0 mx-md-3" href="#">Contact Us</a>
+                <a class="nav-link px-md-0 mx-md-3" href="/contact/">Contact Us</a>
               </li>
             </ul>
             <!-- <span class="donate-link donate-link-desktop ml-md-3 text-white">Donate</span> -->
