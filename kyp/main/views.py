@@ -12,3 +12,6 @@ def team(request):
 
 def contact(request):
     return render(request,'contact.html') 
+    
+def profile(request):
+    return render(request,'profile.html') 

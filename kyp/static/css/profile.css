@@ -1,0 +1,38 @@
+h3{
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+
+  }
+  h5{
+    /* font-size: 24px; */
+    color: #333;
+    font-weight: bold;
+
+  }
+  #team img{
+    border: 2px solid #a1c4fd;
+    margin-top: -70px;
+    object-fit: cover;
+  }
+  #team i{
+    font-size: 26px;
+    color: #555;
+  }
+  #team p{
+    font-weight: 500;
+  }
+  #team .card{
+    width: 20rem;
+    border-radius: 1.5rem !important;
+    background: linear-gradient(to top right, #a1c4fd, #c2e9fd);
+    border-radius: 0;
+    box-shadow: 5px 5px 15px #a1c4fd;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+  }
+  p{
+    text-align: start !important;
+    margin: 0 0 0rem 1rem !important;
+  }

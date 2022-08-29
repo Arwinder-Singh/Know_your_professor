@@ -1,0 +1,44 @@
+{% extends "base.html "%}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href={% static "css/profile.css"%}>
+
+<section id="team">
+    <div class="container my-3 py-5 text-center">
+
+
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <img src={% static "images/1.png" %} class="img-fluid rounded-circle w-50 mb-3" alt="">
+              <h3 class="text-capitalize user-name">Raman Mani</h3>
+              <h5 class="text-capitalize text-muted mb-3">Professor</h5>
+              <p class=" text-capitalize text-muted medium  ">Dept- CSE</p>
+
+              <p class=" text-capitalize text-muted medium  ">Email- kjlhkgvjgh@gmail.com</p>
+
+              <p class=" text-capitalize text-muted medium  ">Mobile- 1234578</p>
+
+
+              <div class="d-flex flex-row justify-content-center mt-3">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="fas fa-star text-light"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </section>
+
+{% endblock %}
