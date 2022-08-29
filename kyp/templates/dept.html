@@ -1,70 +1,53 @@
-{% extends "base.html "%}
-{% load static %}
-
-{% block content %}
-<link rel="stylesheet" href={% static "css/dept.css"%}>
+{% extends "base.html "%} {% load static %} {% block content %} <link
+rel="stylesheet" href={% static "css/dept.css"%}>
 <section id="cards">
-    <div class="container py-2">
-        <div class="row pb-4">
-            <div class="col-12 text-center">
-                <div class="display-3">CSE</div>
-            </div>
-        </div>
-        <!-- cards -->
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 pt-5">
-                <div class="card shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="user-picture">
-                            <img src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" class="shadow-sm rounded-circle" height="130" width="130" />
-                        </div>
-                        <div class="user-content">
-                            <h5 class="text-capitalize user-name">Raman Mani</h5>
-
-                            <div class="small">
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star text-warning"></i>
-                                <i class="fas fa-star-half-alt text-warning"></i>
-                                <i class="fas fa-star text-light"></i>
-                            </div>
-                            <p class=" text-capitalize text-muted small  mb-0">Dept- CSE</p>
-                            <p class=" text-capitalize text-muted small  mb-0">Post- Professor</p>
-                            <!-- <p class=" text-capitalize text-muted small  mb-0">Web developer</p> -->
-                            <!-- <p class="small text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                quia commodi.</p> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 pt-5">
-              <div class="card shadow-sm border-0">
-                  <div class="card-body">
-                      <div class="user-picture">
-                          <img src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" class="shadow-sm rounded-circle" height="130" width="130" />
-                      </div>
-                      <div class="user-content">
-                          <h5 class="text-capitalize user-name">Raman Mani</h5>
-                          <!-- <p class=" text-capitalize text-muted small blockquote-footer">Web developer</p> -->
-                          <div class="small">
-                              <i class="fas fa-star text-warning"></i>
-                              <i class="fas fa-star text-warning"></i>
-                              <i class="fas fa-star text-warning"></i>
-                              <i class="fas fa-star-half-alt text-warning"></i>
-                              <i class="fas fa-star text-light"></i>
-                          </div>
-                          <p class=" text-capitalize text-muted small  mb-0">Dept- CSE</p>
-                          <p class=" text-capitalize text-muted small  mb-0">Post- Professor</p>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-            
-
-        </div>
+  <div class="container py-2">
+    <div class="row pb-4">
+      <div class="col-12 text-center">
+        <div class="display-3">CSE</div>
+      </div>
     </div>
-    <!-- /cards -->
+    <!-- cards -->
+    <div class="row">
+      {% for i in data %}
+      <div class="col-lg-4 col-md-6 mb-4 pt-5">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <div class="user-picture">
+              <img
+                src="{{i.pic.url}}"
+                class="shadow-sm rounded-circle"
+                height="130"
+                width="130"
+              />
+            </div>
+            <div class="user-content">
+              <h5 class="text-capitalize user-name">{{i.name}}</h5>
+
+              <div class="small">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="fas fa-star text-light"></i>
+              </div>
+              <p class="text-capitalize text-muted small mb-0">
+                Dept- {{i.department}}
+              </p>
+              <p class="text-capitalize text-muted small mb-0">
+                Post- {{i.post}}
+              </p>
+              <!-- <p class=" text-capitalize text-muted small  mb-0">Web developer</p> -->
+              <!-- <p class="small text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
+                                quia commodi.</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+  </div>
+  <!-- /cards -->
 </section>
 
 {% endblock %}
