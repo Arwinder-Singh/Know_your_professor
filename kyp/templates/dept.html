@@ -25,11 +25,12 @@ rel="stylesheet" href={% static "css/dept.css"%}>
               <h5 class="text-capitalize user-name">{{i.name}}</h5>
 
               <div class="small">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="fas fa-star text-light"></i>
+            <i class="fa fa-star{% if i.rating < 0.5 %} text-light{% elif i.rating >= 0.5 and i.rating < 1 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 1.5 %} text-light{% elif i.rating >= 1.5 and i.rating < 2 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 2.5 %} text-light{% elif i.rating >= 2.5 and i.rating < 3 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 3.5 %} text-light{% elif i.rating >= 3.5 and i.rating < 4 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 4.5 %} text-light{% elif i.rating >= 4.5 and i.rating < 5 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            
               </div>
               <p class="text-capitalize text-muted small mb-0">
                 Dept- {{i.department}}
