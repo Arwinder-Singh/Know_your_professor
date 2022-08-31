@@ -5,9 +5,9 @@ from accounts.models import Profile
 def index(request):
     return render(request,'index.html')
 
-def dept(request):
-    data=Profile.objects.filter()
-    return render(request,'dept.html',{"data":data})    
+def dept(request,department):
+    data=Profile.objects.filter(department=department)
+    return render(request,'dept.html',{"data":data,'dept':department})    
 
 def team(request):
     return render(request,'team.html') 
