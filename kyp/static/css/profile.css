@@ -90,3 +90,10 @@ label:hover ~ input:checked ~ label{
   color: #ffb503 !important;
 }
  */
+
+
+ #rate-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
