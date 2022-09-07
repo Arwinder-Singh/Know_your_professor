@@ -49,7 +49,7 @@ p {
   }
   
   .rate{
-    display: inline-block;;
+    display: inline-block;
     border: 0;
   }
   
@@ -60,7 +60,7 @@ p {
 /* Showing the stars */
 .rate > label:before{
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 2rem;
   font-family: FontAwesome;
   content: "\f005";
   margin:0;

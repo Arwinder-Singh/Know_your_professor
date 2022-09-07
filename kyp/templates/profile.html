@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href={% static "css/profile.css"%}>
+<link rel="stylesheet" href={% static "css/profile.css" %}>
 
 <section id="team">
   <div class="container my-3 py-5 text-center">
@@ -10,7 +10,7 @@
       <div class="col-lg-4 col-md-6 " style="padding-right: 0px;padding-left: 10px;">
         <div class="card">
           <div class="card-body">
-            <img src="images/1.png" class="img-fluid rounded-circle w-50 mb-3" alt="">
+            <img src={% static "images/img.png" %} class="img-fluid rounded-circle w-50 mb-3" alt="">
             <h3 class="text-capitalize user-name">Raman Mani</h3>
             <h5 class="text-capitalize text-muted mb-3">Professor</h5>
             <p class=" text-capitalize text-muted medium  ">Dept- CSE</p>
@@ -32,295 +32,189 @@
       </div>
       <div class="col-lg-6 col-md-6 ">
         <div class="row container ml-2 mt-3" style="height: 200px;">
-          <div class="col">
-            Give rating to teacher
-          </div>
-          <div class="w-100"></div>
-          <div class="rate col-8">
-            <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-              title="5"></label>
-            <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5"
-              class="half"></label>
-            <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-              title="4"></label>
-            <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7" title="3.5"
-              class="half"></label>
-            <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-              title="3"></label>
-            <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5" title="2.5"
-              class="half"></label>
-            <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-              title="2"></label>
-            <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3" title="1.5"
-              class="half"></label>
-            <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-              title="1"></label>
-            <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5"
-              class="half"></label>
-          </div>
-          <div class="w-100"></div>
-          <div class="col">
-            <input class="btn btn-primary" type="submit" value="Submit">
-          </div>
+          <form action="">
+            <!-- <div class="col font-weight-bold" style="font-size: 2rem;">
+              Give rating to teacher
+            </div> -->
+            <label class="col font-weight-bold" style="font-size: 2rem;">              Give rating to teacher</label>
+            <div class="w-100"></div>
+            <div class="rate col-9">
+              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
+                title="5"></label>
+              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5"
+                class="half"></label>
+              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
+                title="4"></label>
+              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7" title="3.5"
+                class="half"></label>
+              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
+                title="3"></label>
+              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5" title="2.5"
+                class="half"></label>
+              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
+                title="2"></label>
+              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3" title="1.5"
+                class="half"></label>
+              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
+                title="1"></label>
+              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5"
+                class="half"></label>
+            </div>
 
+            <div class="w-100"></div>
+            <div class="col">
+              <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+          </form>
         </div>
+
+
         <div class="row mt-3 ml-2 container">
-          <div class="col">
+          <div class="col font-weight-bold" style="font-size: 2rem; margin-bottom: 1rem; margin-top: 2rem;">
             Tags
           </div>
           <div class="w-100"></div>
-          <div class="col-lg-6 col-sm-12 container">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
 
+          <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
+            <form action="">
+              <div><span style="font-size: 1.5rem; font-weight: 400;">Clarity</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;<button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
+                  data-placement="right" title="More the star more is Clarity">
+                  <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
+                </button>
+              </div>
+              <div class="w-100"></div>
+              <div class="rate col">
+                <input type="radio" name="rating" id="rating101" value="5" required /><label for="rating101"
+                  title="5"></label>
+                <input type="radio" name="rating" id="rating91" value="4.5" required /><label for="rating91" title="4.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating81" value="4" required /><label for="rating81"
+                  title="4"></label>
+                <input type="radio" name="rating" id="rating71" value="3.5" required /><label for="rating71" title="3.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating61" value="3" required /><label for="rating61"
+                  title="3"></label>
+                <input type="radio" name="rating" id="rating51" value="2.5" required /><label for="rating51" title="2.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating41" value="2" required /><label for="rating41"
+                  title="2"></label>
+                <input type="radio" name="rating" id="rating31" value="1.5" required /><label for="rating31" title="1.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating21" value="1" required /><label for="rating21"
+                  title="1"></label>
+                <input type="radio" name="rating" id="rating11" value="0.5" required /><label for="rating11" title="0.5"
+                  class="half"></label>
+              </div>
+            </form>
           </div>
-          <div class="col-lg-6 col-sm-12 container ">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
+          <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
+            <form action="">
+              <div><span style="font-size: 1.5rem; font-weight: 400;">Clarity</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="bg-transparent "
+                  style="border: none;" data-toggle="tooltip" data-placement="right"
+                  title="More the star more is Clarity">
+                  <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
+                </button>
+              </div>
+              <div class="w-100"></div>
+              <div class="rate col">
+                <input type="radio" name="rating" id="rating1001" value="5" required /><label for="rating1001"
+                  title="5"></label>
+                <input type="radio" name="rating" id="rating901" value="4.5" required /><label for="rating901"
+                  title="4.5" class="half"></label>
+                <input type="radio" name="rating" id="rating801" value="4" required /><label for="rating801"
+                  title="4"></label>
+                <input type="radio" name="rating" id="rating701" value="3.5" required /><label for="rating701"
+                  title="3.5" class="half"></label>
+                <input type="radio" name="rating" id="rating601" value="3" required /><label for="rating601"
+                  title="3"></label>
+                <input type="radio" name="rating" id="rating501" value="2.5" required /><label for="rating501"
+                  title="2.5" class="half"></label>
+                <input type="radio" name="rating" id="rating401" value="2" required /><label for="rating401"
+                  title="2"></label>
+                <input type="radio" name="rating" id="rating301" value="1.5" required /><label for="rating301"
+                  title="1.5" class="half"></label>
+                <input type="radio" name="rating" id="rating201" value="1" required /><label for="rating201"
+                  title="1"></label>
+                <input type="radio" name="rating" id="rating101" value="0.5" required /><label for="rating101"
+                  title="0.5" class="half"></label>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
+            <form action="">
+              <div><span style="font-size: 1.5rem; font-weight: 400;">Clarity</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="bg-transparent "
+                  style="border: none;" data-toggle="tooltip" data-placement="right"
+                  title="More the star more is Clarity">
+                  <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
+                </button>
+              </div>
+              <div class="w-100"></div>
+              <div class="rate col">
+                <input type="radio" name="rating" id="rating1002" value="5" required /><label for="rating1002"
+                  title="5"></label>
+                <input type="radio" name="rating" id="rating902" value="4.5" required /><label for="rating90"
+                  title="4.5" class="half"></label>
+                <input type="radio" name="rating" id="rating802" value="4" required /><label for="rating802"
+                  title="4"></label>
+                <input type="radio" name="rating" id="rating702" value="3.5" required /><label for="rating702"
+                  title="3.5" class="half"></label>
+                <input type="radio" name="rating" id="rating602" value="3" required /><label for="rating602"
+                  title="3"></label>
+                <input type="radio" name="rating" id="rating502" value="2.5" required /><label for="rating502"
+                  title="2.5" class="half"></label>
+                <input type="radio" name="rating" id="rating402" value="2" required /><label for="rating402"
+                  title="2"></label>
+                <input type="radio" name="rating" id="rating302" value="1.5" required /><label for="rating302"
+                  title="1.5" class="half"></label>
+                <input type="radio" name="rating" id="rating202" value="1" required /><label for="rating202"
+                  title="1"></label>
+                <input type="radio" name="rating" id="rating102" value="0.5" required /><label for="rating102"
+                  title="0.5" class="half"></label>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6 col-sm-12 container"  style="margin-top: 20px;margin-bottom: 20px;">
+            <form action="">
+              <div><span style="font-size: 1.5rem; font-weight: 400;">Clarity</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="bg-transparent "
+                  style="border: none;" data-toggle="tooltip" data-placement="right"
+                  title="More the star more is Clarity">
+                  <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
+                </button>
+              </div>
+              <div class="w-100"></div>
+              <div class="rate col">
+                <input type="radio" name="rating" id="rating1003" value="5" required /><label for="rating1003"
+                  title="5"></label>
+                <input type="radio" name="rating" id="rating903" value="4.5" required /><label for="rating903"
+                  title="4.5" class="half"></label>
+                <input type="radio" name="rating" id="rating803" value="4" required /><label for="rating803"
+                  title="4"></label>
+                <input type="radio" name="rating" id="rating703" value="3.5" required /><label for="rating703"
+                  title="3.5" class="half"></label>
+                <input type="radio" name="rating" id="rating603" value="3" required /><label for="rating603"
+                  title="3"></label>
+                <input type="radio" name="rating" id="rating503" value="2.5" required /><label for="rating503"
+                  title="2.5" class="half"></label>
+                <input type="radio" name="rating" id="rating403" value="2" required /><label for="rating403"
+                  title="2"></label>
+                <input type="radio" name="rating" id="rating303" value="1.5" required /><label for="rating303"
+                  title="1.5" class="half"></label>
+                <input type="radio" name="rating" id="rating203" value="1" required /><label for="rating203"
+                  title="1"></label>
+                <input type="radio" name="rating" id="rating103" value="0.5" required /><label for="rating103"
+                  title="0.5" class="half"></label>
+              </div>
+            </form>
+          </div>
 
-          </div>
-          <div class="col-lg-6 col-sm-12 container">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
 
-          </div>
-          <div class="col-lg-6 col-sm-12 container">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
 
-          </div>
-          <div class="col-lg-6 col-sm-12 container">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
-
-          </div>
-          <div class="col-lg-6 col-sm-12 container ">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
-
-          </div>
-          <div class="col-lg-6 col-sm-12 container">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
-
-          </div>
-          <div class="col-lg-6 col-sm-12 container ">
-            <div>Clarity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="button" class="btn btn-secondary"
-                data-toggle="tooltip" data-placement="right" title="More the star more is Clarity">
-                Hint
-              </button>
-            </div>
-            <div class="w-100"></div>
-            <div class="rate col">
-              <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
-                title="5"></label>
-              <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9"
-                title="4.5" class="half"></label>
-              <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8"
-                title="4"></label>
-              <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7"
-                title="3.5" class="half"></label>
-              <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6"
-                title="3"></label>
-              <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5"
-                title="2.5" class="half"></label>
-              <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                title="2"></label>
-              <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3"
-                title="1.5" class="half"></label>
-              <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2"
-                title="1"></label>
-              <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1"
-                title="0.5" class="half"></label>
-            </div>
-
-          </div>
-          
         </div>
+
       </div>
     </div>
+  </div>
   </div>
 </section>
 
