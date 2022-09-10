@@ -15,5 +15,7 @@ def team(request):
 def contact(request):
     return render(request,'contact.html') 
     
-def profile(request):
-    return render(request,'profile.html') 
+def profile(request,pk):
+    info=Profile.objects.filter(id=pk)
+    print(info)
+    return render(request,'profile.html',{'info':info}) 

@@ -10,23 +10,30 @@
       <div class="col-lg-4 col-md-6 " style="padding-right: 0px;padding-left: 10px;">
         <div class="card">
           <div class="card-body">
+            {% for i in info %}
             <img src={% static "images/img.png" %} class="img-fluid rounded-circle w-50 mb-3" alt="">
-            <h3 class="text-capitalize user-name">Raman Mani</h3>
-            <h5 class="text-capitalize text-muted mb-3">Professor</h5>
-            <p class=" text-capitalize text-muted medium  ">Dept- CSE</p>
+            <h3 class="text-capitalize user-name">{{i.name}}</h3>
+            <h5 class="text-capitalize text-muted mb-3">{{i.post}}</h5>
+            <p class=" text-capitalize text-muted medium  ">Dept- {{i.department}}</p>
 
-            <p class=" text-capitalize text-muted medium  ">Email- kjlhkgvjgh@gmail.com</p>
+            <p class=" text-capitalize text-muted medium  ">Email- {{i.email}}</p>
 
-            <p class=" text-capitalize text-muted medium  ">Mobile- 1234578</p>
-
+            <p class=" text-capitalize text-muted medium  ">Mobile- {{i.ph_num}}</p>
+           
 
             <div class="d-flex flex-row justify-content-center my-3">
-              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star-half-alt text-warning"></i>
-              <i class="fas fa-star text-light"></i>
+              <i class="fas fa-star text-light"></i> -->
+              <i class="fa fa-star{% if i.rating < 0.5 %} text-light{% elif i.rating >= 0.5 and i.rating < 1 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 1.5 %} text-light{% elif i.rating >= 1.5 and i.rating < 2 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 2.5 %} text-light{% elif i.rating >= 2.5 and i.rating < 3 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 3.5 %} text-light{% elif i.rating >= 3.5 and i.rating < 4 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
+            <i class="fa fa-star{% if i.rating < 4.5 %} text-light{% elif i.rating >= 4.5 and i.rating < 5 %}-half-alt text-warning{% endif %} text-warning" aria-hidden="true"></i>
             </div>
+            {% endfor %}
             <div class="d-flex flex-row  " style="margin-top: 25px; ">
               <p class="text-muted">Clarity</p> &nbsp; &nbsp;&nbsp;
               <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
