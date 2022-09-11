@@ -16,7 +16,7 @@ class Profile(models.Model):
     pic=models.ImageField()
     email=models.EmailField()
     ph_num=models.IntegerField(null=True)
-    tag=models.ManyToManyField(Tag)
+    tag=models.ManyToManyField(Tag,through="AvgRating")
     
     def __str__(self):
         return self.name
