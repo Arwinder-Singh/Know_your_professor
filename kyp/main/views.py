@@ -1,5 +1,6 @@
+from multiprocessing.context import assert_spawning
 from django.shortcuts import render
-from accounts.models import Profile
+from accounts.models import Profile,Tag
 
 # Create your views here.
 def index(request):
@@ -17,5 +18,19 @@ def contact(request):
     
 def profile(request,pk):
     info=Profile.objects.filter(id=pk)
-    print(info)
-    return render(request,'profile.html',{'info':info}) 
+    tags=Tag.objects.all()
+
+    if request.method=="POST":
+        rating=request.POST['rating']
+        assignmentsRating=request.POST['AssignmentsRating']
+        attendanceRating=request.POST['AttendanceRating']
+        clarityRating=request.POST['ClarityRating']
+        timingRating=request.POST['TimingRating']
+        print(rating)
+        print(assignmentsRating)
+        print(attendanceRating)
+        print(clarityRating)
+        print(timingRating)
+
+
+    return render(request,'profile.html',{'info':info,"tags":tags}) 
