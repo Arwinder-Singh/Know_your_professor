@@ -32,10 +32,10 @@ class Rate(models.Model):
     
 class AvgRating(models.Model):
     profile=models.OneToOneField(Profile,on_delete=models.CASCADE,related_name='avg_profile',primary_key=True,)
-    avgAssignmentsRating=models.FloatField(null=True,blank=True,default=None)
-    avgAttendanceRating=models.FloatField(null=True,blank=True,default=None)
-    avgClarityRating=models.FloatField(null=True,blank=True,default=None)
-    avgTimingRating=models.FloatField(null=True,blank=True,default=None)
+    avgAssignmentsRating=models.FloatField(null=True,blank=True,default=0)
+    avgAttendanceRating=models.FloatField(null=True,blank=True,default=0)
+    avgClarityRating=models.FloatField(null=True,blank=True,default=0)
+    avgTimingRating=models.FloatField(null=True,blank=True,default=0)
     
     
 

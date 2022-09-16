@@ -84,7 +84,7 @@
             </div> -->
             <label class="col font-weight-bold" style="font-size: 2rem;"> Give rating to teacher</label>
             <div class="w-100"></div>
-            <div class="rate col-9">
+            {% comment %} <div class="rate col-9">
               <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
                 title="5"></label>
               <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5"
@@ -105,16 +105,16 @@
                 title="1"></label>
               <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5"
                 class="half"></label>
-            </div>
+            </div> {% endcomment %}
 
 
           </div>
 
 
           <div class="row mt-3 ml-2 container">
-            <div class="col font-weight-bold" style="font-size: 2rem; margin-bottom: 1rem;">
+            {% comment %} <div class="col font-weight-bold" style="font-size: 2rem; margin-bottom: 1rem;">
               Tags
-            </div>
+            </div> {% endcomment %}
             <div class="w-100"></div>
             {% for tag in tags %}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
