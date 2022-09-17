@@ -39,7 +39,29 @@
                 aria-hidden="true"></i>
             </div>
             {% endfor %}
+            {% for t,c in tagInfo%}
             <div class="d-flex flex-row  " style="margin-top: 25px; ">
+              <p class="text-muted">{{t.tag_name}}</p> &nbsp; &nbsp;&nbsp;
+              {%for l in c %}
+              <i class="fa fa-star{% if l < 0.5 %} text-light{% elif l >= 0.5 and l < 1 %}-half-alt text-warning{% endif %} text-warning"
+                aria-hidden="true"></i>
+              <i class="fa fa-star{% if l < 1.5 %} text-light{% elif l >= 1.5 and l < 2 %}-half-alt text-warning{% endif %} text-warning"
+                aria-hidden="true"></i>
+              <i class="fa fa-star{% if l < 2.5 %} text-light{% elif l >= 2.5 and l < 3 %}-half-alt text-warning{% endif %} text-warning"
+                aria-hidden="true"></i>
+              <i class="fa fa-star{% if l < 3.5 %} text-light{% elif l >= 3.5 and l < 4 %}-half-alt text-warning{% endif %} text-warning"
+                aria-hidden="true"></i>
+              <i class="fa fa-star{% if l < 4.5 %} text-light{% elif l >= 4.5 and l < 5 %}-half-alt text-warning{% endif %} text-warning"
+                aria-hidden="true"></i>
+              {% comment %} <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
+              <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
+              <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
+              <i class="fas fa-star-half-alt text-warning" style="font-size: 20px;"></i>
+              <i class="fas fa-star text-light" style="font-size: 20px;"></i> {% endcomment %}
+              {% endfor %}
+            </div>
+            {% endfor %}
+            {% comment %} <div class="d-flex flex-row " style="margin-top: 25px;">
               <p class="text-muted">Clarity</p> &nbsp; &nbsp;&nbsp;
               <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
               <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
@@ -62,15 +84,7 @@
               <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
               <i class="fas fa-star-half-alt text-warning" style="font-size: 20px;"></i>
               <i class="fas fa-star text-light" style="font-size: 20px;"></i>
-            </div>
-            <div class="d-flex flex-row " style="margin-top: 25px;">
-              <p class="text-muted">Clarity</p> &nbsp; &nbsp;&nbsp;
-              <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
-              <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
-              <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
-              <i class="fas fa-star-half-alt text-warning" style="font-size: 20px;"></i>
-              <i class="fas fa-star text-light" style="font-size: 20px;"></i>
-            </div>
+            </div> {% endcomment %}
           </div>
         </div>
       </div>
