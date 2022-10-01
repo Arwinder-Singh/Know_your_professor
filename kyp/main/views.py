@@ -1,9 +1,10 @@
 from asyncio.windows_events import NULL
 from multiprocessing.context import assert_spawning
 from tkinter import Entry
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from accounts.models import Profile,Tag,Rate,AvgRating
 
+from django.http import JsonResponse
 from .forms import rateForm
 
 # Create your views here.
@@ -19,6 +20,23 @@ def team(request):
 
 def contact(request):
     return render(request,'contact.html') 
+def temp(request):
+    if request.method=="POST":
+        name=request.POST.get("product")
+        info=Profile.objects.filter(name=name)
+        tags=Tag.objects.all()
+        for i in info:
+            profileID=i.id     
+        avgTags=list(AvgRating.objects.filter(profile_id=profileID).values_list('avgAssignmentsRating','avgAttendanceRating','avgClarityRating','avgTimingRating'))
+        colTags= list(zip(*avgTags))
+        tagInfo=zip(tags,colTags)
+
+        return redirect('profile',pk=profileID)    
+    
+    
+        
+       
+    return render(request,"search.html")
     
 def profile(request,pk):
     info=Profile.objects.filter(id=pk)
@@ -71,3 +89,22 @@ def profile(request,pk):
         avgdata.save()
         
     return render(request,'profile.html',{'info':info,"tags":tags,"tagInfo":tagInfo}) 
+
+def get_names(request):
+    payload=list()
+    if "term" in request.GET:
+        objs=Profile.objects.filter(name__icontains=request.GET.get('term'))
+        for obj in objs:
+             payload.append(obj.name)
+    # name=request.GET.get('name')
+    # payload=[]
+    # if name:
+    #    objs=Profile.objects.filter(name__icontains=name)
+    #    for obj in objs:
+    #        payload.append(obj.name)
+    
+    return  JsonResponse(payload,safe=False)      
+ 
+
+
+   
