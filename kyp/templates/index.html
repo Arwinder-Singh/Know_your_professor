@@ -11,25 +11,38 @@
                 RMT is about helping students answer a single question "what do I need to know to maximize my chance of success in a given class?" Every teacher and class are different, and knowing what to expect can help students best prepare themselves to succeed.
             </p>
         </div>
-
+        {% include 'search.html' %}
+        
+        
+<!-- 
         <div class="search">
-            <form action="">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                     <div class="input-group">
-                        <input type="text" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" />
+                        <input type="text" name="product" id="product" placeholder="search2?" aria-describedby="button-addon1" class="form-control border-0 bg-light" />
                         <div class="input-group-append">
                             <button id="button-addon1" type="submit" class="btn btn-link text-primary">
-                <i class="fa fa-search"></i>
-              </button>
+                    <i class="fa fa-search"></i>
+                  </button>
                         </div>
                     </div>
                 </div>
+        
             </form>
-
-        </div>
+        </div> -->
     </div>
 
 
+    <script>
+        $(function() {
+      
+            $("#product").autocomplete({
+                source: '{% url "get_names" %}',
+                minLength: 2
+            });
+        });
+      </script>
 
     <div class="image"><img src={% static "images/img.png" %} alt="image"></div>
 </div>
