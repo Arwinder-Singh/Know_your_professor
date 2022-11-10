@@ -3,7 +3,38 @@
 
 {% block content %}
 <link rel="stylesheet" href={% static "css/profile.css" %}>
+<style>
+  
+ [data-tooltip]{
+  position: relative;
+  cursor: default;
 
+}
+[data-tooltip]::after{
+  position: absolute;
+  width: 140px;
+  left: calc(50% - 70px);
+  bottom: 125%;
+  text-align: center;
+  box-sizing: border-box;
+  content: attr(data-tooltip);
+  color: white;
+  background: black;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transfrorm 0.2s;
+}
+[data-tooltip]:hover::after{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+</style>
 <section id="team">
   <div class="container my-3 py-5 text-center">
     <div class="row">
@@ -27,15 +58,15 @@
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star-half-alt text-warning"></i>
               <i class="fas fa-star text-light"></i> -->
-              <i class="fa fa-star{% if i.mainRating < 0.5 %} text-light{% elif i.mainRating >= 0.5 and i.mainRating < 1 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if i.mainRating < 0.5 %} text-light{% elif i.mainRating >= 0.5 and i.mainRating < 1 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if i.mainRating < 1.5 %} text-light{% elif i.mainRating >= 1.5 and i.mainRating < 2 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if i.mainRating < 1.5 %} text-light{% elif i.mainRating >= 1.5 and i.mainRating < 2 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if i.mainRating < 2.5 %} text-light{% elif i.mainRating >= 2.5 and i.mainRating < 3 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if i.mainRating < 2.5 %} text-light{% elif i.mainRating >= 2.5 and i.mainRating < 3 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if i.mainRating < 3.5 %} text-light{% elif i.mainRating >= 3.5 and i.mainRating < 4 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if i.mainRating < 3.5 %} text-light{% elif i.mainRating >= 3.5 and i.mainRating < 4 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if i.mainRating < 4.5 %} text-light{% elif i.mainRating >= 4.5 and i.mainRating < 5 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if i.mainRating < 4.5 %} text-light{% elif i.mainRating >= 4.5 and i.mainRating < 5 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
             </div>
             {% endfor %}
@@ -43,15 +74,15 @@
             <div class="d-flex flex-row  " style="margin-top: 25px; ">
               <p class="text-muted">{{t.tag_name}}</p> &nbsp; &nbsp;&nbsp;
               {%for l in c %}
-              <i class="fa fa-star{% if l < 0.5 %} text-light{% elif l >= 0.5 and l < 1 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if l < 0.5 %} text-light{% elif l >= 0.5 and l < 1 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if l < 1.5 %} text-light{% elif l >= 1.5 and l < 2 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if l < 1.5 %} text-light{% elif l >= 1.5 and l < 2 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if l < 2.5 %} text-light{% elif l >= 2.5 and l < 3 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if l < 2.5 %} text-light{% elif l >= 2.5 and l < 3 %}-half-0 text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if l < 3.5 %} text-light{% elif l >= 3.5 and l < 4 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if l < 3.5 %} text-light{% elif l >= 3.5 and l < 4 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
-              <i class="fa fa-star{% if l < 4.5 %} text-light{% elif l >= 4.5 and l < 5 %}-half-alt text-warning{% endif %} text-warning"
+              <i class="fa fa-star{% if l < 4.5 %} text-light{% elif l >= 4.5 and l < 5 %}-half-o text-warning{% endif %} text-warning"
                 aria-hidden="true"></i>
               {% comment %} <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
               <i class="fas fa-star text-warning" style="font-size: 20px;"></i>
@@ -96,7 +127,8 @@
             <!-- <div class="col font-weight-bold" style="font-size: 2rem;">
               Give rating to teacher
             </div> -->
-            <label class="col font-weight-bold" style="font-size: 2rem; color: #658ec6; "> Give rating to teacher</label>
+            <label class="col font-weight-bold" style="font-size: 2rem; color: #658ec6; "> Give rating to
+              teacher</label>
             <div class="w-100"></div>
             {% comment %} <div class="rate col-9">
               <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
@@ -133,13 +165,18 @@
             {% for tag in tags %}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
 
-              <div><span style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> &nbsp; &nbsp; &nbsp;
+              <div><span style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> &nbsp;
+                &nbsp; &nbsp;
                 &nbsp;
                 &nbsp;
-                &nbsp;<button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
+                &nbsp;
+                <span data-tooltip="An example!"><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i></span>
+                 <!-- <button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
                   data-placement="right" title="More the star more is Clarity">
                   <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
-                </button>
+                </button> -->
+        
+                
               </div>
               <div class="w-100"></div>
               <div class="rate col">
