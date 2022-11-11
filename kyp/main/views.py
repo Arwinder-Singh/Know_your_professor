@@ -20,22 +20,20 @@ def team(request):
 
 def contact(request):
     return render(request,'contact.html') 
+
 def temp(request):
     if request.method=="POST":
         name=request.POST.get("product")
-        info=Profile.objects.filter(name=name)
+        info=Profile.objects.filter(name__icontains= name)
         tags=Tag.objects.all()
         for i in info:
-            profileID=i.id     
+            profileID=i.id   
+            print("profile id----->",profileID)  
         avgTags=list(AvgRating.objects.filter(profile_id=profileID).values_list('avgAssignmentsRating','avgAttendanceRating','avgClarityRating','avgTimingRating'))
         colTags= list(zip(*avgTags))
         tagInfo=zip(tags,colTags)
 
         return redirect('profile',pk=profileID)    
-    
-    
-        
-       
     return render(request,"search.html")
     
 def profile(request,pk):
