@@ -35,6 +35,10 @@
   transform: translateY(0);
 }
 </style>
+
+{% if pk == 0 %}
+<h1>No results found</h1>
+{% else %}
 <section id="team">
   <div class="container my-3 py-5 text-center">
     <div class="row">
@@ -218,4 +222,5 @@
   </div>
   </div>
 </section>
+{% endif %}
 {% endblock %}

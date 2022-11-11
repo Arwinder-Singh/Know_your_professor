@@ -26,17 +26,19 @@ def temp(request):
         name=request.POST.get("product")
         info=Profile.objects.filter(name__icontains= name)
         tags=Tag.objects.all()
+        profileID=0
         for i in info:
             profileID=i.id   
-            print("profile id----->",profileID)  
+        print("profile id---->",profileID)     
         avgTags=list(AvgRating.objects.filter(profile_id=profileID).values_list('avgAssignmentsRating','avgAttendanceRating','avgClarityRating','avgTimingRating'))
         colTags= list(zip(*avgTags))
         tagInfo=zip(tags,colTags)
-
+        
         return redirect('profile',pk=profileID)    
     return render(request,"search.html")
     
 def profile(request,pk):
+    
     info=Profile.objects.filter(id=pk)
     tags=Tag.objects.all()
 
@@ -86,14 +88,17 @@ def profile(request,pk):
 
         avgdata.save()
         
-    return render(request,'profile.html',{'info':info,"tags":tags,"tagInfo":tagInfo}) 
+    return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo}) 
 
 def get_names(request):
     payload=list()
     if "term" in request.GET:
         objs=Profile.objects.filter(name__icontains=request.GET.get('term'))
-        for obj in objs:
-             payload.append(obj.name)
+        if objs:
+            for obj in objs:
+                payload.append(obj.name)
+        else:
+            payload.append('No results found')
     # name=request.GET.get('name')
     # payload=[]
     # if name:
