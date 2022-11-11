@@ -34,10 +34,14 @@
   visibility: visible;
   transform: translateY(0);
 }
+.no_result{
+  padding-top: 4rem;
+  text-align: center;
+}
 </style>
 
 {% if pk == 0 %}
-<h1>No results found</h1>
+<h1 class="no_result">No results found</h1>
 {% else %}
 <section id="team">
   <div class="container my-3 py-5 text-center">
