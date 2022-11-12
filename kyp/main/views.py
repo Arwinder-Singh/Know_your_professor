@@ -2,6 +2,7 @@ from asyncio.windows_events import NULL
 from multiprocessing.context import assert_spawning
 from tkinter import Entry
 from django.shortcuts import render,redirect
+from django.contrib import messages
 from accounts.models import Profile,Tag,Rate,AvgRating
 
 from django.http import JsonResponse
@@ -13,6 +14,7 @@ def index(request):
 
 def dept(request,department):
     data=Profile.objects.filter(department=department)
+    print(data)
     return render(request,'dept.html',{"data":data,'dept':department})    
 
 def team(request):
@@ -24,7 +26,12 @@ def contact(request):
 def temp(request):
     if request.method=="POST":
         name=request.POST.get("product")
+        print("name---->",name)
+        
+            
         info=Profile.objects.filter(name__icontains= name)
+        if info.count()==0:
+            messages.warning(request,"no profile exists")
         tags=Tag.objects.all()
         profileID=0
         for i in info:
@@ -34,7 +41,8 @@ def temp(request):
         colTags= list(zip(*avgTags))
         tagInfo=zip(tags,colTags)
         
-        return redirect('profile',pk=profileID)    
+        # return redirect('profile',pk=profileID)
+        return render(request,'dept.html',{"data":info,"dept":"Search results"})      
     return render(request,"search.html")
     
 def profile(request,pk):
@@ -56,6 +64,10 @@ def profile(request,pk):
             data.clarityRating=form.cleaned_data['clarityRating']
             data.timingRating=form.cleaned_data['timingRating']
             data.profile_id=pk
+            print("assign---->",data.assignmentsRating)
+            print("attend---->",data.attendanceRating)
+            print("clarit---->",data.clarityRating)
+            print("timing---->",data.timingRating)
             data.save()
         ratings=[data.assignmentsRating,data.attendanceRating,data.clarityRating,data.timingRating]
         records=Rate.objects.filter(profile_id=pk).count()
@@ -88,11 +100,14 @@ def profile(request,pk):
 
         avgdata.save()
         
+        
     return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo}) 
 
 def get_names(request):
     payload=list()
+    
     if "term" in request.GET:
+        
         objs=Profile.objects.filter(name__icontains=request.GET.get('term'))
         if objs:
             for obj in objs:

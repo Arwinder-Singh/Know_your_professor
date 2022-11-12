@@ -16,6 +16,7 @@
           placeholder="What're you searching for ?"
           aria-describedby="button-addon1"
           class="form-control border-0 bg-light"
+          required
         />
         <div class="input-group-append">
           <button
@@ -35,7 +36,7 @@
   $(function () {
     $("#product").autocomplete({
       source: '{% url "get_names" %}',
-      minLength: 2,
+      minLength: 3,
     });
   });
 </script>
