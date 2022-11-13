@@ -135,7 +135,7 @@
         
         {% endcomment %}
 
-        <form action="" method="POST">
+        <form action="" method="POST" name="forms" onsubmit="return validate()">
           {% csrf_token %}
 
           <div class="row container ml-2 mt-3" style="height: 50px;">
@@ -220,6 +220,19 @@
               </div>
 
             </div>
+            <script>
+              function validate() {
+                        var a=document.forms.{{tag.tag_name}}Rating;
+                        for(i=0;i<a.length;i++){
+                            if(a[i].checked==true){
+                                return true;
+                            }
+                            alert("Message")
+                            // document.getElementById("message").innerHTML="Please select one"
+                            return false;                     
+                        }
+                    }
+            </script>
             {% endfor %}
 
             <div class="w-100"></div>
@@ -236,4 +249,5 @@
   </div>
 </section>
 {% endif %}
+
 {% endblock %}

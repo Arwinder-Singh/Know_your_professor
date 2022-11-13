@@ -1,5 +1,12 @@
 {% extends "base.html "%} {% load static %} {% block content %}
 <link rel="stylesheet" href={% static "css/dept.css" %}>
+<style>
+    #search_msg{
+        padding-top: 1rem;
+        text-align: center;
+        text-transform: capitalize;
+    }
+</style>
 <section id="cards">
     <div class="container py-2">
         <div class="row pb-4">
@@ -8,7 +15,7 @@
             </div>
         </div>
         {% for msg in messages %}
-        {{msg}}
+        <h2 id="search_msg">{{msg}}</h2>
         {% endfor %}
         <!-- cards -->
         <div class="row">
