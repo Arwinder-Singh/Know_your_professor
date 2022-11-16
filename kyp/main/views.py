@@ -68,40 +68,45 @@ def profile(request,pk):
             print("attend---->",data.attendanceRating)
             print("clarit---->",data.clarityRating)
             print("timing---->",data.timingRating)
-            data.save()
-        ratings=[data.assignmentsRating,data.attendanceRating,data.clarityRating,data.timingRating]
-        records=Rate.objects.filter(profile_id=pk).count()
-
-        is_record=True
-        try:
-            entry=AvgRating.objects.get(profile_id=pk)
+            if data.assignmentsRating == None or data.attendanceRating == None or data.clarityRating == None or data.timingRating == None:
+                messages.warning(request,"sarea values bhrr")
+            else:
+                data.save()
             
-        except:
-            is_record=False
 
-        if is_record:
-            avgRatings=[entry.avgAssignmentsRating,entry.avgAttendanceRating,entry.avgClarityRating,entry.avgTimingRating]
-        else:
-            avgRatings=[0,0,0,0]   
-        
-        
-        newAvg=[]
-        
-        for value,avgOld in zip(ratings,avgRatings):
-            avgNew=avgOld+(value-avgOld)/records 
-            newAvg.append(round(avgNew,1)) 
-        
-        avg_mainRating=sum(newAvg)/4;
-        profile=Profile.objects.get(id=pk)
-        profile.mainRating=round(avg_mainRating,1)
-        profile.save()
-             
-        avgdata=AvgRating(avgAssignmentsRating=newAvg[0],avgAttendanceRating=newAvg[1],avgClarityRating=newAvg[2],avgTimingRating=newAvg[3],profile_id=pk)
+                ratings=[data.assignmentsRating,data.attendanceRating,data.clarityRating,data.timingRating]
+                records=Rate.objects.filter(profile_id=pk).count()
 
-        avgdata.save()
+                is_record=True
+                try:
+                    entry=AvgRating.objects.get(profile_id=pk)
+                    
+                except:
+                    is_record=False
+
+                if is_record:
+                    avgRatings=[entry.avgAssignmentsRating,entry.avgAttendanceRating,entry.avgClarityRating,entry.avgTimingRating]
+                else:
+                    avgRatings=[0,0,0,0]   
+                
+                
+                newAvg=[]
+                
+                for value,avgOld in zip(ratings,avgRatings):
+                    avgNew=avgOld+(value-avgOld)/records 
+                    newAvg.append(round(avgNew,1))
+                
+                avg_mainRating=sum(newAvg)/4;
+                profile=Profile.objects.get(id=pk)
+                profile.mainRating=round(avg_mainRating,1)
+                profile.save()
+                    
+                avgdata=AvgRating(avgAssignmentsRating=newAvg[0],avgAttendanceRating=newAvg[1],avgClarityRating=newAvg[2],avgTimingRating=newAvg[3],profile_id=pk)
+
+                avgdata.save()
+                
         
-        
-    return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo}) 
+    return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo,}) 
 
 def get_names(request):
     payload=list()

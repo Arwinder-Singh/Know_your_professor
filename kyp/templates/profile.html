@@ -4,46 +4,55 @@
 {% block content %}
 <link rel="stylesheet" href={% static "css/profile.css" %}>
 <style>
-  
- [data-tooltip]{
-  position: relative;
-  cursor: default;
+  [data-tooltip] {
+    position: relative;
+    cursor: default;
 
-}
-[data-tooltip]::after{
-  position: absolute;
-  width: 140px;
-  left: calc(50% - 70px);
-  bottom: 125%;
-  text-align: center;
-  box-sizing: border-box;
-  content: attr(data-tooltip);
-  color: white;
-  background: black;
-  padding: 8px;
-  border-radius: 10px;
-  font-size: 0.9em;
-  font-weight: bold;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s, transfrorm 0.2s;
-}
-[data-tooltip]:hover::after{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.no_result{
-  padding-top: 4rem;
-  text-align: center;
-}
+  }
+
+  [data-tooltip]::after {
+    position: absolute;
+    width: 140px;
+    left: calc(50% - 70px);
+    bottom: 125%;
+    text-align: center;
+    box-sizing: border-box;
+    content: attr(data-tooltip);
+    color: white;
+    background: black;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transfrorm 0.2s;
+  }
+
+  [data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .no_result {
+    padding-top: 4rem;
+    text-align: center;
+  }
+  #sub_mess{
+    padding-top: 2rem;
+    color: red;
+    font-size: 18px;
+  }
+  
 </style>
 
 {% if pk == 0 %}
 <h1 class="no_result">No results found</h1>
 {% else %}
 <section id="team">
+
   <div class="container my-3 py-5 text-center">
     <div class="row">
       <div class="col-lg-4 col-md-6 " style="padding-right: 0px;padding-left: 10px;">
@@ -129,10 +138,10 @@
       </div>
       <div class="col-lg-8 col-md-6 ">
 
-        {% comment %} 
+        {% comment %}
 
         ALERT MESSAGE
-        
+
         {% endcomment %}
 
         <form action="" method="POST" name="forms" onsubmit="return validate()">
@@ -145,7 +154,8 @@
             <label class="col font-weight-bold" style="font-size: 2rem; color: #658ec6; "> Give rating to
               teacher</label>
             <div class="w-100"></div>
-            {% comment %} <div class="rate col-9">
+            {% comment %}
+             <div class="rate col-9">
               <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
                 title="5"></label>
               <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5"
@@ -177,7 +187,7 @@
               Tags
             </div> {% endcomment %}
             <div class="w-100"></div>
-            
+
             {% for tag in tags %}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
 
@@ -186,68 +196,66 @@
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                <span data-tooltip="An example!"><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i></span>
-                 <!-- <button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
+                <span data-tooltip="An example!"><i class="fa fa-info-circle" aria-hidden="true"
+                    style="font-size: 17px;"></i></span>
+                <!-- <button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
                   data-placement="right" title="More the star more is Clarity">
                   <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
                 </button> -->
-        
-                
+
+
               </div>
-              
+
               <div class="w-100"></div>
               <div class="rate col">
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_10" value="5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_10" value="5" /><label
                   for="{{tag.tag_name}}_10" title="5"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_9" value="4.5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_9" value="4.5" /><label
                   for="{{tag.tag_name}}_9" title="4.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_8" value="4" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_8" value="4" /><label
                   for="{{tag.tag_name}}_8" title="4"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_7" value="3.5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_7" value="3.5" /><label
                   for="{{tag.tag_name}}_7" title="3.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_6" value="3" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_6" value="3" /><label
                   for="{{tag.tag_name}}_6" title="3"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_5" value="2.5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_5" value="2.5" /><label
                   for="{{tag.tag_name}}_5" title="2.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_4" value="2" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_4" value="2" /><label
                   for="{{tag.tag_name}}_4" title="2"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_3" value="1.5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_3" value="1.5" /><label
                   for="{{tag.tag_name}}_3" title="1.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_2" value="1" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_2" value="1" /><label
                   for="{{tag.tag_name}}_2" title="1"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_1" value="0.5" required /><label
+                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_1" value="0.5" /><label
                   for="{{tag.tag_name}}_1" title="0.5" class="half"></label>
               </div>
 
             </div>
-            <script>
-              function validate() {
-                        var a=document.forms.{{tag.tag_name}}Rating;
-                        for(i=0;i<a.length;i++){
-                            if(a[i].checked==true){
-                                return true;
-                            }
-                            alert("Message")
-                            // document.getElementById("message").innerHTML="Please select one"
-                            return false;                     
-                        }
-                    }
-            </script>
+            
             {% endfor %}
+
 
             <div class="w-100"></div>
             <div class="col">
               <input class="btn btn-primary" type="submit" value="Submit">
             </div>
-
+            <div class="w-100"></div>
+            {% for msg in messages %}
+      <div class="col" id="sub_mess">{{msg}}</div>
+      {% endfor %}
           </div>
         </form>
-
+       
       </div>
+      
     </div>
   </div>
   </div>
+  
 </section>
+
+
+
 {% endif %}
 
 {% endblock %}
