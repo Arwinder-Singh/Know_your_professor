@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Tag(models.Model):
         tag_name=models.CharField(max_length=30)
+        tag_hint=models.TextField(null=True,blank=True)
         
         
         def __str__(self):
@@ -23,11 +24,17 @@ class Profile(models.Model):
     
 class Rate(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='profile')
-    assignmentsRating=models.FloatField(null=True,blank=True,default=None)
-    attendanceRating=models.FloatField(null=True,blank=True,default=None)
+    getreadytodoworkRating=models.FloatField(null=True,blank=True,default=None)
+    skipclassyouwillnotpassRating=models.FloatField(null=True,blank=True,default=None)
     clarityRating=models.FloatField(null=True,blank=True,default=None)
-    timingRating=models.FloatField(null=True,blank=True,default=None)
-    
+    timelyteacherRating=models.FloatField(null=True,blank=True,default=None)
+    ControlfreakRating=models.FloatField(null=True,blank=True,default=None)
+    ToughGraderRating=models.FloatField(null=True,blank=True,default=None)
+    BewareofquestioningRating=models.FloatField(null=True,blank=True,default=None)
+    LectureheavyRating=models.FloatField(null=True,blank=True,default=None)
+    NotesprovidedRating=models.FloatField(null=True,blank=True,default=None)
+    ExtraactivitiesRating=models.FloatField(null=True,blank=True,default=None)
+  
     
     
 class AvgRating(models.Model):
@@ -36,6 +43,15 @@ class AvgRating(models.Model):
     avgAttendanceRating=models.FloatField(null=True,blank=True,default=0)
     avgClarityRating=models.FloatField(null=True,blank=True,default=0)
     avgTimingRating=models.FloatField(null=True,blank=True,default=0)
+    avgControlRating=models.FloatField(null=True,blank=True,default=0)
+    avgGraderRating=models.FloatField(null=True,blank=True,default=0)
+    avgQuestioningRating=models.FloatField(null=True,blank=True,default=0)
+    avgLectureRating=models.FloatField(null=True,blank=True,default=0)
+    avgNotesRating=models.FloatField(null=True,blank=True,default=0)
+    avgActivitiesRating=models.FloatField(null=True,blank=True,default=0)
+    
+    
+    
     
     
 

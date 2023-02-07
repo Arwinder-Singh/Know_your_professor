@@ -59,7 +59,7 @@
         <div class="card">
           <div class="card-body">
             {% for i in info %}
-            <img src={% static "images/img.png" %} class="img-fluid rounded-circle w-50 mb-3" alt="">
+            <img src="{{i.pic.url}}" class="img-fluid rounded-circle w-50 mb-3" alt="">
             <h3 class="text-capitalize user-name" style="color: #658ec6;">{{i.name}}</h3>
             <h5 class="text-capitalize text-muted mb-3">{{i.post}}</h5>
             <p class=" text-capitalize text-muted medium  ">Dept- {{i.department}}</p>
@@ -187,47 +187,47 @@
               Tags
             </div> {% endcomment %}
             <div class="w-100"></div>
-
-            {% for tag in tags %}
+          
+            {% for tag in tags%}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
-
+                
               <div><span style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> &nbsp;
                 &nbsp; &nbsp;
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                <span data-tooltip="An example!"><i class="fa fa-info-circle" aria-hidden="true"
+                <span data-tooltip="{{tag.tag_hint}}"><i class="fa fa-info-circle" aria-hidden="true"
                     style="font-size: 17px;"></i></span>
                 <!-- <button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
                   data-placement="right" title="More the star more is Clarity">
                   <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
                 </button> -->
 
-
+    
               </div>
-
+              
               <div class="w-100"></div>
               <div class="rate col">
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_10" value="5" /><label
-                  for="{{tag.tag_name}}_10" title="5"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_9" value="4.5" /><label
-                  for="{{tag.tag_name}}_9" title="4.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_8" value="4" /><label
-                  for="{{tag.tag_name}}_8" title="4"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_7" value="3.5" /><label
-                  for="{{tag.tag_name}}_7" title="3.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_6" value="3" /><label
-                  for="{{tag.tag_name}}_6" title="3"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_5" value="2.5" /><label
-                  for="{{tag.tag_name}}_5" title="2.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_4" value="2" /><label
-                  for="{{tag.tag_name}}_4" title="2"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_3" value="1.5" /><label
-                  for="{{tag.tag_name}}_3" title="1.5" class="half"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_2" value="1" /><label
-                  for="{{tag.tag_name}}_2" title="1"></label>
-                <input type="radio" name="{{tag.tag_name}}Rating" id="{{tag.tag_name}}_1" value="0.5" /><label
-                  for="{{tag.tag_name}}_1" title="0.5" class="half"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_10" value="5" /><label
+                  for="{{tag.tag_name|cut:" "}}_10" title="5"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_9" value="4.5" /><label
+                  for="{{tag.tag_name|cut:" "}}_9" title="4.5" class="half"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_8" value="4" /><label
+                  for="{{tag.tag_name|cut:" "}}_8" title="4"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_7" value="3.5" /><label
+                  for="{{tag.tag_name|cut:" "}}_7" title="3.5" class="half"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_6" value="3" /><label
+                  for="{{tag.tag_name|cut:" "}}_6" title="3"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_5" value="2.5" /><label
+                  for="{{tag.tag_name|cut:" "}}_5" title="2.5" class="half"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_4" value="2" /><label
+                  for="{{tag.tag_name|cut:" "}}_4" title="2"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_3" value="1.5" /><label
+                  for="{{tag.tag_name|cut:" "}}_3" title="1.5" class="half"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_2" value="1" /><label
+                  for="{{tag.tag_name|cut:" "}}_2" title="1"></label>
+                <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_1" value="0.5" /><label
+                  for="{{tag.tag_name|cut:" "}}_1" title="0.5" class="half"></label>
               </div>
 
             </div>

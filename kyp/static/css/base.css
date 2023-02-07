@@ -7,7 +7,9 @@
 
 main {
     min-height: 100vh;
-    background: linear-gradient(to top left, #99ff66 -12%, #66ccff 100%);
+    /* background: linear-gradient(to top left, #99ff66 -12%, #66ccff 100%); */
+    /* background: linear-gradient(to right top, #658ec6, #6cdbeb); */
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
     /* background-color: rgb(190, 190, 190); */
     /* background-color: #424530; */
     /* background: linear-gradient(to top right, #65dfc9, #6cdbeb); */
@@ -26,9 +28,10 @@ main {
     width: 95%;
     /* display: flex; */
     /* flex-direction: column; */
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.456), rgba(255, 255, 255, 0.303));
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    /* background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.456), rgba(255, 255, 255, 0.303)); */
     border-radius: 2rem;
-    border-bottom: 5px solid white;
+    /* border-bottom: 5px solid white; */
     z-index: 2;
     backdrop-filter: blur(2rem);
 }
@@ -56,7 +59,10 @@ nav {
 }
 
 a {
-    color: #658ec6 !important;
+    color: #426696 !important;
+    opacity: 0.9;
+    font-weight: 600;
+    /* color: #658ec6 !important; */
 }
 
 .dropdown-menu {
