@@ -12,7 +12,7 @@
 
   [data-tooltip]::after {
     position: absolute;
-    width: 140px;
+    width: 250px;
     left: calc(50% - 70px);
     bottom: 125%;
     text-align: center;
@@ -191,13 +191,10 @@
             {% for tag in tags%}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
                 
-              <div><span style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> &nbsp;
-                &nbsp; &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <span data-tooltip="{{tag.tag_hint}}"><i class="fa fa-info-circle" aria-hidden="true"
-                    style="font-size: 17px;"></i></span>
+              <div><span style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> 
+                
+                <div><span data-tooltip="{{tag.tag_hint}}"><i class="fa fa-info-circle" aria-hidden="true"
+                    style="font-size: 17px;"></i></span></div>
                 <!-- <button type="button" class="bg-transparent " style="border: none;" data-toggle="tooltip"
                   data-placement="right" title="More the star more is Clarity">
                   <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
