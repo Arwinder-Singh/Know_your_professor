@@ -84,7 +84,7 @@ def profile(request,pk):
             print("notes---->",data.NotesprovidedRating)
             print("activity---->",data.ExtraactivitiesRating)
             if data.getreadytodoworkRating == None or data.skipclassyouwillnotpassRating == None or data.clarityRating == None or data.timelyteacherRating == None or data.ControlfreakRating == None or data.ToughGraderRating == None or data.BewareofquestioningRating == None or data.LectureheavyRating == None or data.NotesprovidedRating == None or data.ExtraactivitiesRating == None:
-                messages.warning(request,"sarea values bhrr")
+                messages.warning(request,"Rate every tag")
             else:
                 data.save()
             

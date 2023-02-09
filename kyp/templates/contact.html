@@ -4,6 +4,15 @@
 {% block content %}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 <link rel="stylesheet" href={% static "css/contact.css " %}>
+<style>
+  
+  @media screen and (max-width:550px) {
+    .faq .faq-list a{
+      font-size: 14px;
+    }
+
+}
+</style>
 <section class="faq ">
   <div class="container">
     <div class="faq-title">
@@ -40,20 +49,13 @@
         <a data-toggle="collapse" href="#faq3" class="collapsed">I cannot find professor on website anywhere? <i class="fas fa-arrow-up"></i></a>
         <div id="faq3" class="collapse" data-parent=".faq-list">
           <p>
-            You can search professor by names. If you still got no results, then probably that professor is not added in database. Let us know about this. You ca reach out to us through provided
+            You can search professor by names. If you still got no results, then probably that professor is not added in database. Let us know about this. You can reach out to us through provided
             email address.We'll resolve that matter quickly.
             <address> <a href="mailto:knowyourprofessorpup@gmail.com">knowyourprofessorpup@gmail.com</a></address>         </p>
         </div> 
       </li>
 
-      <li data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">
-        <a data-toggle="collapse" href="#faq4" class="collapsed">Rating is done anonymously or not? <i class="fas fa-arrow-up"></i></a>
-        <div id="faq4" class="collapse" data-parent=".faq-list">
-          <p>
-            Rating on website is done anonymously.
-          </p>
-        </div>
-      </li>
+      
 
       <li data-aos="fade-up" data-aos-delay="500" class="aos-init aos-animate">
         <a data-toggle="collapse" href="#faq5" class="collapsed">About us? <i class="fas fa-arrow-up"></i></a>
