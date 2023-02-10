@@ -4,6 +4,7 @@
 {% block content %}
 <link rel="stylesheet" href={% static "css/profile.css" %}>
 <style>
+  
   .abc{
     position: relative;
     display: flex;
@@ -37,11 +38,22 @@
     transition: opacity 0.3s, transfrorm 0.2s;
   }
 
-  [data-tooltip]:hover::after {
+  [data-tooltip]:hover::after{
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
+  @media screen and (max-width:630px) {
+    [data-tooltip]::after{
+      position: absolute;
+      left: calc(50% - 190px);
+    }
+    }
+  /* .arv::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  } */
 
   .no_result {
     padding-top: 4rem;
@@ -60,7 +72,7 @@
 {% else %}
 <section id="team">
 
-  <div class="container my-3 py-5 text-center">
+  <div class="container my-3 py-5 text-center" style="max-width: 1440px;">
     <div class="row">
       <div class="col-lg-4 col-md-6 " style="padding-right: 0px;padding-left: 10px;">
         <div class="card">
@@ -170,11 +182,11 @@
               Tags
             </div> {% endcomment %}
             <div class="w-100"></div>
-          
+            
             {% for tag in tags%}
             <div class="col-lg-6 col-sm-12 container" style="margin-top: 20px;margin-bottom: 20px;">
                 
-              <div><span class="abc" style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> 
+              <div style="display: flex;"><span class="abc" style="font-size: 1.5rem; font-weight: 400; color: #658ec6;">{{tag.tag_name}}</span> 
                 
                 <!-- <div><span data-tooltip="{{tag.tag_hint}}"><i class="fa fa-info-circle" aria-hidden="true"
                     style="font-size: 17px;"></i></span></div> -->
@@ -182,12 +194,14 @@
                   data-placement="right" title="More the star more is Clarity">
                   <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 17px;"></i>
                 </button> -->
-
-    
+                <!-- <span class="arv" data-tooltip="{{tag.tag_hint}}"><p style="font-size: 17px;">Hint</p></span> -->
+               
+                
               </div>
               
               <div class="w-100"></div>
-              <div class="rate col">
+              <div class="rate col">  
+                
                 <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_10" value="5" /><label
                   for="{{tag.tag_name|cut:" "}}_10" title="5"></label>
                 <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_9" value="4.5" /><label
@@ -208,8 +222,10 @@
                   for="{{tag.tag_name|cut:" "}}_2" title="1"></label>
                 <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_1" value="0.5" /><label
                   for="{{tag.tag_name|cut:" "}}_1" title="0.5" class="half"></label>
-                  <span data-tooltip="{{tag.tag_hint}}"><i class="fa fa-info-circle" aria-hidden="true"
-                    style="font-size: 17px; padding-top: 20px;"></i></span>
+                  
+
+                  <!-- <i class="fa fa-info-circle kes" aria-hidden="true"
+                    style="font-size: 17px; padding-top: 20px;"></i> -->
               </div>
 
             </div>
@@ -240,4 +256,15 @@
 
 {% endif %}
 
+
+
+<script type="text/javascript">
+
+  var kes = document.querySelector(".kes");
+  var arv = document.querySelector(".arv");
+  kes.addEventListener("click",()=>{
+    arv.classList.toggle('arv::after');
+    console.log("laura")
+  })
+</script>
 {% endblock %}
