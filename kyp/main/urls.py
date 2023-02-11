@@ -9,6 +9,8 @@ urlpatterns = [
     path('profile/<int:pk>/',views.profile,name='profile'),
     path('search/',views.get_names,name='get_names'),
     path('temp/',views.temp,name='temp'),
+    
+    
 
 
 ]

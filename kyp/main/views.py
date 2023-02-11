@@ -5,7 +5,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from accounts.models import Profile,Tag,Rate,AvgRating
 
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponseRedirect
 from .forms import rateForm
 
 # Create your views here.
@@ -57,15 +57,17 @@ def profile(request,pk):
     avgTags=list(AvgRating.objects.filter(profile_id=pk).values_list('avgAssignmentsRating','avgAttendanceRating','avgClarityRating','avgTimingRating','avgControlRating','avgGraderRating','avgQuestioningRating','avgLectureRating','avgNotesRating','avgActivitiesRating'))
     colTags= list(zip(*avgTags))
     tagInfo=zip(tags,colTags)
+    print('form is not valid')
     if request.method=="POST":
+        print('form is valid')
         form=rateForm(request.POST)
         if form.is_valid():
             
             data=Rate()
-            data.getreadytodoworkRating=form.cleaned_data['getreadytodoworkRating']
-            data.skipclassyouwillnotpassRating=form.cleaned_data['skipclassyouwillnotpassRating']
-            data.clarityRating=form.cleaned_data['clarityRating']
-            data.timelyteacherRating=form.cleaned_data['timelyteacherRating']
+            data.GetreadytodoworkRating=form.cleaned_data['GetreadytodoworkRating']
+            data.SkipclassyouwillnotpassRating=form.cleaned_data['SkipclassyouwillnotpassRating']
+            data.ClarityRating=form.cleaned_data['ClarityRating']
+            data.TimelyteacherRating=form.cleaned_data['TimelyteacherRating']
             data.ControlfreakRating=form.cleaned_data['ControlfreakRating']
             data.ToughGraderRating=form.cleaned_data['ToughGraderRating']
             data.BewareofquestioningRating=form.cleaned_data['BewareofquestioningRating']
@@ -73,23 +75,32 @@ def profile(request,pk):
             data.NotesprovidedRating=form.cleaned_data['NotesprovidedRating']
             data.ExtraactivitiesRating=form.cleaned_data['ExtraactivitiesRating']
             data.profile_id=pk
-            print("assign---->",data.getreadytodoworkRating)
-            print("attend---->",data.skipclassyouwillnotpassRating)
-            print("clarit---->",data.clarityRating)
-            print("timing---->",data.timelyteacherRating)
+            print("assign---->",data.GetreadytodoworkRating)
+            print("attend---->",data.SkipclassyouwillnotpassRating)
+            print("clarit---->",data.ClarityRating)
+            print("timing---->",data.TimelyteacherRating)
             print("control---->",data.ControlfreakRating)
             print("grade---->",data.ToughGraderRating)
             print("question---->",data.BewareofquestioningRating)
             print("leacture---->",data.LectureheavyRating)
             print("notes---->",data.NotesprovidedRating)
             print("activity---->",data.ExtraactivitiesRating)
-            if data.getreadytodoworkRating == None or data.skipclassyouwillnotpassRating == None or data.clarityRating == None or data.timelyteacherRating == None or data.ControlfreakRating == None or data.ToughGraderRating == None or data.BewareofquestioningRating == None or data.LectureheavyRating == None or data.NotesprovidedRating == None or data.ExtraactivitiesRating == None:
+            
+            if data.GetreadytodoworkRating == None or data.SkipclassyouwillnotpassRating == None or data.ClarityRating == None or data.TimelyteacherRating == None or data.ControlfreakRating == None or data.ToughGraderRating == None or data.BewareofquestioningRating == None or data.LectureheavyRating == None or data.NotesprovidedRating == None or data.ExtraactivitiesRating == None:
                 messages.warning(request,"Rate every tag")
+                
+                
             else:
+                
                 data.save()
+                return HttpResponseRedirect(reverse("main.views.profile")
+
+                
+                
+
             
 
-                ratings=[data.getreadytodoworkRating,data.skipclassyouwillnotpassRating,data.clarityRating,data.timelyteacherRating,data.ControlfreakRating,data.ToughGraderRating,data.BewareofquestioningRating,data.LectureheavyRating,data.NotesprovidedRating,data.ExtraactivitiesRating]
+                ratings=[data.GetreadytodoworkRating,data.SkipclassyouwillnotpassRating,data.ClarityRating,data.TimelyteacherRating,data.ControlfreakRating,data.ToughGraderRating,data.BewareofquestioningRating,data.LectureheavyRating,data.NotesprovidedRating,data.ExtraactivitiesRating]
                 records=Rate.objects.filter(profile_id=pk).count()
 
                 is_record=True
@@ -121,7 +132,7 @@ def profile(request,pk):
                 avgdata.save()
       
         
-    return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo}) 
+    return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo,}) 
 
 def get_names(request):
     payload=list()
@@ -141,7 +152,9 @@ def get_names(request):
     #    for obj in objs:
     #        payload.append(obj.name)
     
-    return  JsonResponse(payload,safe=False)      
+    return  JsonResponse(payload,safe=False)
+
+      
  
 
 

@@ -24,10 +24,10 @@ class Profile(models.Model):
     
 class Rate(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='profile')
-    getreadytodoworkRating=models.FloatField(null=True,blank=True,default=None)
-    skipclassyouwillnotpassRating=models.FloatField(null=True,blank=True,default=None)
-    clarityRating=models.FloatField(null=True,blank=True,default=None)
-    timelyteacherRating=models.FloatField(null=True,blank=True,default=None)
+    GetreadytodoworkRating=models.FloatField(null=True,blank=True,default=None)
+    SkipclassyouwillnotpassRating=models.FloatField(null=True,blank=True,default=None)
+    ClarityRating=models.FloatField(null=True,blank=True,default=None)
+    TimelyteacherRating=models.FloatField(null=True,blank=True,default=None)
     ControlfreakRating=models.FloatField(null=True,blank=True,default=None)
     ToughGraderRating=models.FloatField(null=True,blank=True,default=None)
     BewareofquestioningRating=models.FloatField(null=True,blank=True,default=None)

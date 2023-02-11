@@ -13,7 +13,7 @@
         text-align: left;
     }
     
-    [data-tooltip] {
+    /* [data-tooltip] {
         position: relative;
         cursor: default;
     }
@@ -43,11 +43,30 @@
         visibility: visible;
         transform: translateY(0);
     }
-    
-    @media screen and (max-width:630px) {
+     */
+    /* @media screen and (max-width:630px) {
         [data-tooltip]::after {
             position: absolute;
             left: calc(50% - 190px);
+        }
+        
+    } */
+    .popbtn{
+        margin-top: 1rem;
+    }
+    @media screen and (max-width:12000px){
+        .popbtn{
+           padding: 1px;
+        }.popbtn span{
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width:450px){
+        .popbtn{
+           padding: 0px;
+           margin-right: 4px;
+        }.popbtn span{
+            font-size: 11px;
         }
     }
     /* .arv::after {
@@ -67,7 +86,7 @@
         font-size: 18px;
     }
 </style>
-
+{% include 'poponload.html' %}
 {% if pk == 0 %}
 <h1 class="no_result">No results found</h1>
 {% else %}
@@ -143,10 +162,15 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-6 ">
+                <h1>{{pk}}</h1>
 
                 {% comment %} ALERT MESSAGE {% endcomment %}
 
                 <form action="" method="POST" name="forms" onsubmit="return validate()">
+                    {% for msg in messages %}
+                        
+                    <div class="col" id="sub_mess">{{msg}}</div>
+                    {% endfor %}
                     {% csrf_token %}
 
                     <div class="row container ml-2 mt-3" style="height: 50px;">
@@ -180,10 +204,13 @@
                 </button> -->
                                 <!-- <span class="arv" data-tooltip="{{tag.tag_hint}}"><p style="font-size: 17px;">Hint</p></span>
                                  -->
-                                <ABBR title="{{tag.tag_hint}}">HINT</ABBR>
+                                 <!-- <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{tag.tag_hint}}">
+                                  READ ME
+                                </button> -->
+                                
 
                             </div>
-
+                            
                             <div class="w-100"></div>
                             <div class="rate col">
 
@@ -198,7 +225,10 @@
                                 <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_2" value="1" /><label for="{{tag.tag_name|cut:" "}}_2" title="1"></label>
                                 <input type="radio" name="{{tag.tag_name|cut:" "}}Rating" id="{{tag.tag_name|cut:" "}}_1" value="0.5" /><label for="{{tag.tag_name|cut:" "}}_1" title="0.5" class="half"></label>
 
-
+                                <a tabindex="0" class="btn btn-secondary popbtn" role="button" 
+                                data-toggle="popover" data-trigger="focus"
+                                data-content="{{tag.tag_hint}}">
+                                <span style="color: white;">Read Me</span></a>
                                 <!-- <i class="fa fa-info-circle kes" aria-hidden="true"
                     style="font-size: 17px; padding-top: 20px;"></i> -->
                             </div>
@@ -210,12 +240,14 @@
 
                         <div class="w-100"></div>
                         <div class="col">
-                            <input class="btn btn-primary" type="submit" value="Submit">
+                            <input class="btn btn-primary" type="submit" value="Submit" >
+                            <!-- onclick="alert('hello')" -->
                         </div>
                         <div class="w-100"></div>
-                        {% for msg in messages %}
+                        <!-- {% for msg in messages %}
+                        
                         <div class="col" id="sub_mess">{{msg}}</div>
-                        {% endfor %}
+                        {% endfor %} -->
                     </div>
                 </form>
 
@@ -234,11 +266,12 @@
 
 
 <script type="text/javascript">
-    var kes = document.querySelector(".kes");
-    var arv = document.querySelector(".arv");
-    kes.addEventListener("click", () => {
-        arv.classList.toggle('arv::after');
-        console.log("laura")
-    })
+    // console.log('{{flag}}')
+    // var kes = document.querySelector(".kes");
+    // var arv = document.querySelector(".arv");
+    // kes.addEventListener("click", () => {
+    //     arv.classList.toggle('arv::after');
+    //     console.log("laura")
+    // })
 </script>
 {% endblock %}

@@ -49,7 +49,7 @@ transform: translateY(-20px);
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid rgba(0,0,0,0.25);
+    /* border: 5px solid rgba(0,0,0,0.25); */
 }
 .container .card .content .imgbx img{
     position: absolute;

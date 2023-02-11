@@ -13,32 +13,17 @@ rel="stylesheet" href={% static "css/index.css "%}>
     </div>
     {% include 'search.html' %}
 
-    <!-- 
-        <div class="search">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                    <div class="input-group">
-                        <input type="text" name="product" id="product" placeholder="search2?" aria-describedby="button-addon1" class="form-control border-0 bg-light" />
-                        <div class="input-group-append">
-                            <button id="button-addon1" type="submit" class="btn btn-link text-primary">
-                    <i class="fa fa-search"></i>
-                  </button>
-                        </div>
-                    </div>
-                </div>
-        
-            </form>
-        </div> -->
+
   </div>
 
   <script>
-    $(function () {
-      $("#product").autocomplete({
-        source: '{% url "get_names" %}',
-        minLength: 2,
-      });
-    });
+    // var $myjq=jQuery.noConflict();
+    // $myjq(function () {
+    //   $myjq("#product").autocomplete({
+    //     source: '{% url "get_names" %}',
+    //     minLength: 2,
+    //   });
+    // });
   </script>
 
   <!-- <<<<<<< HEAD -->
