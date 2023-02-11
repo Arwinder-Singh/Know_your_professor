@@ -1,11 +1,11 @@
 from asyncio.windows_events import NULL
 from multiprocessing.context import assert_spawning
 from tkinter import Entry
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from accounts.models import Profile,Tag,Rate,AvgRating
 
-from django.http import JsonResponse,HttpResponseRedirect
+from django.http import JsonResponse,HttpResponse
 from .forms import rateForm
 
 # Create your views here.
@@ -91,9 +91,9 @@ def profile(request,pk):
                 
                 
             else:
-                
                 data.save()
-                return HttpResponseRedirect(reverse("main.views.profile")
+                return redirect(random,pk)
+                
 
                 
                 
@@ -154,6 +154,9 @@ def get_names(request):
     
     return  JsonResponse(payload,safe=False)
 
+
+def random(request,key):
+    return redirect(profile,key)
       
  
 
