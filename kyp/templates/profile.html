@@ -87,17 +87,30 @@
     #sub_mess {
         padding-top: 2rem;
         color: red;
-        font-size: 18px;
+        font-size: 26px;
+        font-weight: bold;
+        padding-left: 50%;
     }
+    @media screen and (max-width:450px){
+    #sub_mess {
+        font-size: 18px;
+        padding-left: 30%;
+    }
+}
 </style>
 {% include 'poponload.html' %} {% if pk == 0 %}
 <h1 class="no_result">No results found</h1>
 {% else %}
 <section id="team">
 
+    {% for msg in messages %}
+
+    <div class="col" id="sub_mess">{{msg}}</div>
+    {% endfor %}
+
     <div class="container my-3 py-5 text-center" style="max-width: 1440px;">
         <div class="row">
-            <div class="col-lg-4 col-md-6 " style="padding-right: 0px;padding-left: 10px;">
+            <div class="col-lg-4 col-md-6 teachercard" style="padding-right: 0px;padding-left: 10px;">
                 <div class="card">
                     <div class="card-body">
                         {% for i in info %}
@@ -170,10 +183,11 @@
                 {% comment %} ALERT MESSAGE {% endcomment %}
 
                 <form action="" method="POST" name="forms" onsubmit="return validate()">
-                    {% for msg in messages %}
+                    <!-- {% for msg in messages %}
 
                     <div class="col" id="sub_mess">{{msg}}</div>
-                    {% endfor %} {% csrf_token %}
+                    {% endfor %} -->
+                     {% csrf_token %}
 
                     <div class="row container ml-2 mt-3" style="height: 50px;">
                         <!-- <div class="col font-weight-bold" style="font-size: 2rem;">
