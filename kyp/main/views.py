@@ -85,6 +85,7 @@ def profile(request,pk):
             print("leacture---->",data.LectureheavyRating)
             print("notes---->",data.NotesprovidedRating)
             print("activity---->",data.ExtraactivitiesRating)
+            print("return phela baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad")   
             
             if data.GetreadytodoworkRating == None or data.SkipclassyouwillnotpassRating == None or data.ClarityRating == None or data.TimelyteacherRating == None or data.ControlfreakRating == None or data.ToughGraderRating == None or data.BewareofquestioningRating == None or data.LectureheavyRating == None or data.NotesprovidedRating == None or data.ExtraactivitiesRating == None:
                 messages.warning(request,"Rate every tag")
@@ -95,41 +96,40 @@ def profile(request,pk):
                 return redirect(random,pk)
                 
 
+            print("return toh baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad")   
+    ratings=[data.GetreadytodoworkRating,data.SkipclassyouwillnotpassRating,data.ClarityRating,data.TimelyteacherRating,data.ControlfreakRating,data.ToughGraderRating,data.BewareofquestioningRating,data.LectureheavyRating,data.NotesprovidedRating,data.ExtraactivitiesRating]
+    records=Rate.objects.filter(profile_id=pk).count()
+    print('count-->',records)
+    is_record=True
+    try:
+        entry=AvgRating.objects.get(profile_id=pk)
+                    
+    except:
+        is_record=False
+
+    if is_record:
+        avgRatings=[entry.avgAssignmentsRating,entry.avgAttendanceRating,entry.avgClarityRating,entry.avgTimingRating,entry.avgControlRating,entry.avgGraderRating,entry.avgQuestioningRating,entry.avgLectureRating,entry.avgNotesRating,entry.avgActivitiesRating]
+    else:
+        avgRatings=[0,0,0,0,0,0,0,0,0,0]   
+        newAvg=[]
                 
+    for value,avgOld in zip(ratings,avgRatings):
+        avgNew=avgOld+(value-avgOld)/records 
+        newAvg.append(round(avgNew,1))
                 
+    avg_mainRating=sum(newAvg)/10;
+    profile=Profile.objects.get(id=pk)
+    profile.mainRating=round(avg_mainRating,1)
+    profile.save()
+                    
+    avgdata=AvgRating(avgAssignmentsRating=newAvg[0],avgAttendanceRating=newAvg[1],avgClarityRating=newAvg[2],avgTimingRating=newAvg[3],avgControlRating=newAvg[4],avgGraderRating=newAvg[5],avgQuestioningRating=newAvg[6],avgLectureRating=newAvg[7],avgNotesRating=newAvg[8],avgActivitiesRating=newAvg[9],profile_id=pk)
+
+    
+    avgdata.save()            
 
             
 
-                ratings=[data.GetreadytodoworkRating,data.SkipclassyouwillnotpassRating,data.ClarityRating,data.TimelyteacherRating,data.ControlfreakRating,data.ToughGraderRating,data.BewareofquestioningRating,data.LectureheavyRating,data.NotesprovidedRating,data.ExtraactivitiesRating]
-                records=Rate.objects.filter(profile_id=pk).count()
-
-                is_record=True
-                try:
-                    entry=AvgRating.objects.get(profile_id=pk)
-                    
-                except:
-                    is_record=False
-
-                if is_record:
-                    avgRatings=[entry.avgAssignmentsRating,entry.avgAttendanceRating,entry.avgClarityRating,entry.avgTimingRating,entry.avgControlRating,entry.avgGraderRating,entry.avgQuestioningRating,entry.avgLectureRating,entry.avgNotesRating,entry.avgActivitiesRating]
-                else:
-                    avgRatings=[0,0,0,0,0,0,0,0,0,0]   
-                
-                
-                newAvg=[]
-                
-                for value,avgOld in zip(ratings,avgRatings):
-                    avgNew=avgOld+(value-avgOld)/records 
-                    newAvg.append(round(avgNew,1))
-                
-                avg_mainRating=sum(newAvg)/10;
-                profile=Profile.objects.get(id=pk)
-                profile.mainRating=round(avg_mainRating,1)
-                profile.save()
-                    
-                avgdata=AvgRating(avgAssignmentsRating=newAvg[0],avgAttendanceRating=newAvg[1],avgClarityRating=newAvg[2],avgTimingRating=newAvg[3],avgControlRating=newAvg[4],avgGraderRating=newAvg[5],avgQuestioningRating=newAvg[6],avgLectureRating=newAvg[7],avgNotesRating=newAvg[8],avgActivitiesRating=newAvg[9],profile_id=pk)
-
-                avgdata.save()
+            
       
         
     return render(request,'profile.html',{'pk':pk,'info':info,"tags":tags,"tagInfo":tagInfo,}) 
